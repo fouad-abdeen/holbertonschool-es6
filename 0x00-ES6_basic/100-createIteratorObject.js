@@ -1,6 +1,6 @@
 export default function createIteratorObject(report) {
   const arr = Object.values(report.allEmployees);
-  const merged = [].concat.apply([], arr);
+  const finalArr = arr.flat();
     
-  return merged;
+  return finalArr;
 }
