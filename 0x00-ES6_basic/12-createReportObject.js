@@ -1,3 +1,5 @@
+/* eslint-disable linebreak-style */
+
 export default function createReportObject(employeesList) {
   const obj = {
     allEmployees: employeesList,
@@ -9,3 +11,15 @@ export default function createReportObject(employeesList) {
 
   return obj;
 }
+
+// Another Solution
+/*
+export default function createReportObject(employeesList) {
+  return {
+    allEmployees: {...employeesList},
+    getNumberOfDepartments(employeesList) {
+      return Object.keys(employeesList).length;
+    },
+  };
+}
+*/
