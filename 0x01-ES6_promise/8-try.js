@@ -4,8 +4,7 @@ export default function divideFunction(numerator, denominator) {
     if (denominator === 0) {
       throw new Error('cannot divide by 0');
     } else {
-      const division = numerator / denominator;
-      return division;
+      return (numerator / denominator);
     }
   } catch (e) {
     return e;
