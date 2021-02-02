@@ -1,8 +1,17 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable no-unused-vars */
 import signUpUser from './4-user-promise';
 import uploadPhoto from './5-photo-reject';
 
-export default function handleProfileSignup(firstName, lastName, fileName) {
-  return Promise.allSettled([signUpUser(), uploadPhoto()]);
+export default async function handleProfileSignup(firstName, lastName, fileName) {
+  const user = await signUpUser(firstName, lastName).then((data) => ({
+    status: 'fulfilled',
+    value: data,
+  }));
+
+  const photo = await uploadPhoto(fileName).catch((err) => ({
+    status: 'rejected',
+    value: err.toString(),
+  }));
+
+  return Promise.allSettled([user, photo]);
 }
