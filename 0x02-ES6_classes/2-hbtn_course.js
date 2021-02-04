@@ -7,18 +7,18 @@ export default class HolbertonCourse {
     this.verifyTypeSafety();
   }
 
-verifyTypeSafety() {
-  if (typeof this._name !== 'string') {
-    throw new TypeError('Name must be a string');
-  } 
-  if (typeof this._length !== 'number') {
-    throw new TypeError('Length must be a number');
-  } 
-  const isArray = Array.isArray(this._students);
-  if (isArray !== true) {
-    throw new TypeError('Students must be an array');
+  verifyTypeSafety() {
+    if (typeof this._name !== 'string') {
+      throw new TypeError('Name must be a string');
+    }
+    if (typeof this._length !== 'number') {
+      throw new TypeError('Length must be a number');
+    }
+    const isArray = Array.isArray(this._students);
+    if (isArray !== true) {
+      throw new TypeError('Students must be an array');
+    }
   }
-}
 
   get name() {
     return this._name;
