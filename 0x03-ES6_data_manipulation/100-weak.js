@@ -3,10 +3,10 @@ let nbrOfQueries = 0;
 export const weakMap = new WeakMap();
 
 export const queryAPI = (endpoint) => {
-  if (nbrOfQueries >= 5) {
+  if (weakMap.get(endpoint) >= 5) {
     throw new Error('Endpoint load is high');
   }
-  // eslint-disable-next-line no-plusplus
-  nbrOfQueries++;
+
+  nbrOfQueries += 1;
   weakMap.set(endpoint, nbrOfQueries);
 };
